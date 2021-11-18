@@ -32,10 +32,16 @@
 }
 
 .main{
-	background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.8)),url(https://images.pexels.com/photos/844297/pexels-photo-844297.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260);
+	background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.6)),url(https://images.pexels.com/photos/844297/pexels-photo-844297.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260);
 	background-size: cover;
 	background-repeat: no-repeat;
 	height: 100vh;
+}
+
+.icon{
+	font-size: 200px;
+	border: none;
+	text-align: center;
 }
 
 .search-bar{
@@ -44,3 +50,5 @@
 	border: #fff solid 2px;
 	padding: 10px;
 }
+
+
