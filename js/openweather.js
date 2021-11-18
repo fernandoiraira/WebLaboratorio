@@ -4,23 +4,24 @@ var nombreCiudad = document.getElementById('city-name');
 var buscador = document.getElementById('search-bar');
 var formBuscador = document.getElementById('search-form');
 var contenedorTarjetas = document.getElementById('cards-container');
-const diaSemana = ['Sabado','Domingo','Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'];
+const diaSemana = ['Sabado', 'Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'];
 
 //Se muestran los datos en el HTML
-const mostrarDatos = (fecha, ciudad ,temperaturas) => {
- 
+const mostrarDatos = (fecha, ciudad, temperaturas) => {
+
 
     var fechaActual = new Date(fecha).getDate();
 
     //Se setea el titulo con el nombre de la ciudad
     nombreCiudad.innerHTML = ciudad;
 
-    contenedorTarjetas.innerHTML ="";
+    contenedorTarjetas.innerHTML = "";
 
-    
-    for(var i=fechaActual; i< fechaActual+5; i++){
+    console.log(temperaturas)
+
+    for (var i = fechaActual; i <= fechaActual + 5; i++) {
         contenedorTarjetas.innerHTML += `
-        <div class="col-sm-12 col-md-12 col-lg-2">
+        <div class="col-sm-12 col-md-5 col-lg-2">
                             <div class="card mt-3 bg-dark">
                                 <div class="day align-items-center p-2 text-center">
                                     <h3>${temperaturas[i][0]}</h3> 
@@ -71,7 +72,7 @@ const obtenerDias = (datos) => {
 
         } else {
 
-            j = i; 
+            j = i;
 
             var dia = diaSemana[fechaIndice.getDay()];
 
@@ -100,23 +101,29 @@ const getClima = async (ciudad) => {
         }
     });
 
-    console.log('workin')
+    if (res.status === 404) {
+        contenedorTarjetas.innerHTML = "";
+        nombreCiudad.innerHTML = '<h3 class= "error">No se encontró la ciudad ingresada</h3>';
 
-    //Se obtiene JSON
-    var datos = await res.json();
+    } else {
 
-    //Se obtiene temperatura minima y máxima para los próximos 5 días
-    var temperaturas = obtenerDias(datos);
+        //Se obtiene JSON
+        var datos = await res.json();
 
-    //Mostrar en HTML
-    mostrarDatos(datos.list[0].dt_txt ,datos.city.name, temperaturas);
+        //Se obtiene temperatura minima y máxima para los próximos 5 días
+        var temperaturas = obtenerDias(datos);
+
+        //Mostrar en HTML
+        mostrarDatos(datos.list[0].dt_txt, datos.city.name, temperaturas);
+
+    }
 }
 
 formBuscador.addEventListener("submit", e => {
     e.preventDefault();
     getClima(buscador.value);
-}
-);
+});
+
 //Al cargarse la ventana, por defecto se seleccionará Neuquén
 window.onload = () => {
     getClima("Neuquén");
