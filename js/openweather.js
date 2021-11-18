@@ -20,7 +20,7 @@ const mostrarDatos = (fecha, ciudad ,temperaturas) => {
     
     for(var i=fechaActual; i< fechaActual+5; i++){
         contenedorTarjetas.innerHTML += `
-        <div class="col-md-3">
+        <div class="col-sm-12 col-md-12 col-lg-2">
                             <div class="card mt-3 bg-dark">
                                 <div class="day align-items-center p-2 text-center">
                                     <h3>${temperaturas[i][0]}</h3> 
@@ -96,9 +96,11 @@ const getClima = async (ciudad) => {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "community-open-weather-map.p.rapidapi.com",
-            "x-rapidapi-key": "532fc16203mshaa3e001aa36f0bcp192e09jsnc87acd15264e"
+            "x-rapidapi-key": "8c2baee70fmshd1a1b23c7bc7b0dp1008a3jsn256f6f9b7a14"
         }
     });
+
+    console.log('workin')
 
     //Se obtiene JSON
     var datos = await res.json();
