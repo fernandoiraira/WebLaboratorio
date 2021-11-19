@@ -1,10 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,700,800,900&display=swap');
+//Se sobreescribe fuente 
+$font-family-sans-serif:'Poppins', sans-serif;
 
-*{
-	font-family: 'Poppins',sans-serif;
-	color: #fff !important;
-	box-sizing: border-box;
-}
+//Personalización de colores
+$primary: rgb(255, 0, 0);
+$danger: rgb(255, 217, 0);
+$body-color: #fff;
+
 
 .logo{
 	font-weight: 700;
@@ -55,3 +56,7 @@
 .error{
 	color: red !important;
 }
+
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
