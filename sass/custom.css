@@ -11,17 +11,16 @@
   transition: ease 0.4s;
 }
 
-/*No poner en responsive*/
-.links a:hover {
-  color: black !important;
-  background-color: #a00d00;
-  border-radius: 40px;
-}
-
 .links li a {
   color: #fff !important;
   margin-right: 10px;
   text-transform: uppercase;
+}
+
+.links a:hover {
+  color: black !important;
+  background-color: #a00d00;
+  border-radius: 40px;
 }
 
 .main {

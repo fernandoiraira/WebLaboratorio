@@ -13,23 +13,26 @@ $body-color: #fff;
 	letter-spacing: 1px;
 }
 
-.links a{
-	font-weight: 700;
-	padding: 10px;
-	transition: ease 0.4s;
-}
+.links {
 
-/*No poner en responsive*/
-.links a:hover{
-	color: black !important;
-	background-color: rgb(160, 13, 0);
-	border-radius: 40px;
-}
+    a{
+        font-weight: 700;
+        padding: 10px;
+        transition: ease 0.4s;
+    }
+    
+    li a{
+        color: #fff !important;
+        margin-right: 10px;
+        text-transform: uppercase;
+    }
 
-.links li a{
-	color: #fff !important;
-	margin-right: 10px;
-	text-transform: uppercase;
+    a:hover{
+        color: black !important;
+        background-color: rgb(160, 13, 0);
+        border-radius: 40px;
+    }
+
 }
 
 .main{
