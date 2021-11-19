@@ -1,5 +1,4 @@
 //En este script, se obtienen los datos de la API de OpenWeather.
-
 var nombreCiudad = document.getElementById('city-name');
 var buscador = document.getElementById('search-bar');
 var formBuscador = document.getElementById('search-form');
@@ -103,7 +102,7 @@ const getClima = async (ciudad) => {
 
     if (res.status === 404) {
         contenedorTarjetas.innerHTML = "";
-        nombreCiudad.innerHTML = '<h3 class= "error">No se encontró la ciudad ingresada</h3>';
+        nombreCiudad.innerHTML = '<h3 class= "text-red">No se encontró la ciudad ingresada</h3>';
 
     } else {
 
